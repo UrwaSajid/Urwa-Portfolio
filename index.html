@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Meyawo main styles -->
+    <link rel="stylesheet" href="assets/css/app.css">
+    <style>
+        .about-img-holder:hover .about-img {
+            animation: jiggle 0.5s ease-in-out;
+        }
+        
+        .animate-img {
+            animation: jiggle 0.8s ease-in-out;
+        }
+        
+        @keyframes jiggle {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+            100% { transform: rotate(0deg); }
+        }
+        
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #121f3d;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .header {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(assets/imgs/header.jpg);
+        }
+        
+        body.dark-mode .custom-navbar {
+            background-color: #172a52;
+        }
+        
+        body.dark-mode .section {
+            background-color: #121f3d;
+        }
+        
+        body.dark-mode .service-card {
+            background-color: #172a52;
+        }
+        
+        body.dark-mode .portfolio-card-overlay {
+            background-color: rgba(23, 42, 82, 0.8);
+        }
+        
+        body.dark-mode .contact-form .form-control {
+            background-color: #172a52;
+            border-color: #2a3a5a;
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .footer {
+            background-color: #172a52;
+        }
+        
+        /* Additional dark mode text improvements */
+        body.dark-mode h1, 
+        body.dark-mode h2, 
+        body.dark-mode h3, 
+        body.dark-mode h4, 
+        body.dark-mode h5, 
+        body.dark-mode h6 {
+            color: #ffffff;
+        }
+        
+        body.dark-mode p {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .section-subtitle {
+            color: #a3b1d0;
+        }
+        
+        body.dark-mode .service-card .body {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .service-card .title {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .service-card .subtitle {
+            color: #c0c9df;
+        }
+        
+        body.dark-mode .portfolio-card-caption h4 {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .portfolio-card-caption p {
+            color: #c0c9df;
+        }
+        
+        body.dark-mode .btn-outline-primary {
+            color: #a3b1d0;
+            border-color: #a3b1d0;
+        }
+        
+        body.dark-mode .btn-outline-primary:hover {
+            color: #121f3d;
+            background-color: #a3b1d0;
+            border-color: #a3b1d0;
+        }
+        
+        body.dark-mode .custom-navbar .nav .item .link {
+            color: #e0e0e0;
+        }
+        
+        body.dark-mode .custom-navbar .nav .item .link:hover {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .footer p, 
+        body.dark-mode .footer a {
+            color: #c0c9df;
+        }
+        
+        body.dark-mode .social-links .link {
+            color: #a3b1d0;
+        }
+        
+        body.dark-mode .social-links .link:hover {
+            color: #ffffff;
+        }
+        
+        /* Toggle switch styles */
+        .dark-mode-toggle {
+            display: inline-flex;
+            align-items: center;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .toggle-slider {
+            background-color: #695aa6;
+        }
+        
+        input:checked + .toggle-slider:before {
+            transform: translateX(20px);
+        }
+        
+        .mode-icon {
+            margin: 0 5px;
+            font-size: 14px;
+        }
+        
+        /* TEST Section Styles */
+        .slider-container, .vertical-slider-container, .circular-slider-container {
+            margin-bottom: 50px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(105, 90, 166, 0.05);
+        }
+        
+        .custom-range {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Vertical slider styling */
+        .vertical-range {
+            height: 150px;
+            width: 20px;
+            -webkit-appearance: slider-vertical;
+            appearance: slider-vertical;
+            writing-mode: bt-lr;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .vertical-content {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.3s ease;
+        }
+        
+        .placeholder-content {
+            padding: 10px;
+            color: #999;
+            font-style: italic;
+        }
+        
+        /* Circular slider styling */
+        .circular-slider {
+            position: relative;
+            padding: 20px;
+        }
+        
+        .dial {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            margin: 0 auto;
+            cursor: pointer;
+        }
+        
+        .dial-handle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #695aa6;
+            border-radius: 50%;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .circular-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        /* Card animation */
+        .card-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        
+        .card-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Dark mode adjustments for TEST section */
+        body.dark-mode .slider-container,
+        body.dark-mode .vertical-slider-container,
+        body.dark-mode .circular-slider-container {
+            background-color: rgba(163, 177, 208, 0.05);
+        }
+        
+        body.dark-mode .dial {
+            background: linear-gradient(135deg, #172a52, #121f3d);
+        }
+        
+        body.dark-mode .dial-handle {
+            background-color: #a3b1d0;
+        }
+        
+        body.dark-mode .card {
+            background-color: #172a52;
+            border-color: #2a3a5a;
+        }
+        
+        body.dark-mode .card-title {
+            color: #ffffff;
+        }
+        
+        body.dark-mode .placeholder-content {
+            color: #a3b1d0;
+        }
+
+        /* Circular slider styling */
+        .circular-slider {
+            position: relative;
+            padding: 20px;
+        }
+        
+        .circular-slider-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+        }
+        
+        .progress-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #695aa6;
+            z-index: 10;
+        }
+        
+        .dial {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .dial-handle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #695aa6;
+            border-radius: 50%;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 5;
+        }
+        
+        .dial-start-marker {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff5252;
+            border-radius: 50%;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
+        }
+        
+        .dial-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background-color: rgba(105, 90, 166, 0.2);
+            clip-path: polygon(50% 50%, 50% 0%, 50% 0%);
+            z-index: 3;
+        }
+        
+        body.dark-mode .progress-indicator {
+            color: #a3b1d0;
+        }
+        
+        body.dark-mode .dial-progress {
+            background-color: rgba(163, 177, 208, 0.2);
+        }
+
+        .dial {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: transparent;
+            position: relative;
+            cursor: pointer;
+            margin: 0 auto;
+        }
+        
+        .dial-outer-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 3px solid #e0e0e0;
+            box-sizing: border-box;
+        }
+        
+        .dial-inner-circle {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-radius: 50%;
+            border: 2px dashed #ccc;
+            box-sizing: border-box;
+        }
+        
+        .dial-handle {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: #695aa6;
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 10%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 10;
+            cursor: grab;
+            transition: box-shadow 0.2s;
+        }
+        
+        .dial-handle:hover, .dial-handle:active {
+            box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+        }
+        
+        .dial-handle:active {
+            cursor: grabbing;
+        }
+        
+        .dial-start-marker {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: #ff5252;
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-top: 10%;
+            z-index: 5;
+        }
+        
+        .dial-progress {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            background-color: rgba(105, 90, 166, 0.2);
+            clip-path: polygon(50% 50%, 50% 0%, 50% 0%);
+            z-index: 3;
+        }
+        
+        body.dark-mode .dial-outer-circle {
+            border-color: #2a3a5a;
+        }
+        
+        body.dark-mode .dial-inner-circle {
+            border-color: #465672;
+        }
+
+        /* Additional styles for new contact section */
+        .info-wrap {
+            padding: 30px;
+            background-color: rgba(105, 90, 166, 0.05);
+            border-radius: 10px;
+            height: 100%;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(105, 90, 166, 0.1);
+            color: #695aa6;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .info-item h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            margin-bottom: 0;
+        }
+
+        .contact-form {
+            padding: 30px;
+            border-radius: 10px;
+            background-color: rgba(105, 90, 166, 0.05);
+            height: 100%;
+        }
+
+        .contact-form label {
+            font-weight: 500;
+            color: #444;
+            text-align: left;
+            display: block;
+        }
+
+        .contact-form .form-control {
+            border-radius: 8px;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .contact-form .form-control:focus {
+            border-color: #695aa6;
+            box-shadow: 0 0 0 0.2rem rgba(105, 90, 166, 0.25);
+        }
+
+        #form-message.success {
+            color: #28a745;
+            background-color: rgba(40, 167, 69, 0.1);
+            border: 1px solid rgba(40, 167, 69, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #form-message.error {
+            color: #dc3545;
+            background-color: rgba(220, 53, 69, 0.1);
+            border: 1px solid rgba(220, 53, 69, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Dark mode adjustments */
+        body.dark-mode .info-wrap,
+        body.dark-mode .contact-form {
+            background-color: rgba(163, 177, 208, 0.05);
+        }
+
+        body.dark-mode .info-item i {
+            background-color: rgba(163, 177, 208, 0.1);
+            color: #a3b1d0;
+        }
+
+        body.dark-mode .contact-form label {
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .contact-form .form-control {
+            background-color: #172a52;
+            border-color: #2a3a5a;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .contact-form .form-control:focus {
+            border-color: #a3b1d0;
+            box-shadow: 0 0 0 0.2rem rgba(163, 177, 208, 0.25);
+        }
+
+        /* Puzzle Pieces Skills Section */
+        .puzzle-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        @media (max-width: 992px) {
+            .puzzle-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .puzzle-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .puzzle-piece {
+            height: 180px;
+            border-radius: 15px;
+            position: relative;
+            transform-style: preserve-3d;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: puzzleAppear 0.6s ease forwards;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .puzzle-piece:hover {
+            transform: scale(1.05) translateZ(10px);
+            z-index: 5;
+        }
+
+        .puzzle-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .puzzle-piece:hover .puzzle-content {
+            transform: rotateY(180deg);
+        }
+
+        .puzzle-front, .puzzle-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .puzzle-front {
+            background: linear-gradient(135deg, rgba(105, 90, 166, 0.1), rgba(105, 90, 166, 0.2));
+            border: 2px solid rgba(105, 90, 166, 0.2);
+        }
+
+        .puzzle-back {
+            background: linear-gradient(135deg, rgba(105, 90, 166, 0.9), rgba(105, 90, 166, 0.7));
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .puzzle-front i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #695aa6;
+        }
+
+        .puzzle-front h5 {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .puzzle-back h6 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .puzzle-back p {
+            font-size: 0.9rem;
+            text-align: center;
+            margin: 0;
+        }
+
+        /* Animation for puzzle pieces */
+        @keyframes puzzleAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+            }
+            70% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(0.9);
+            }
+        }
+
+        /* Staggered animation for puzzle pieces */
+        .puzzle-piece:nth-child(1) { animation-delay: 0.1s; }
+        .puzzle-piece:nth-child(2) { animation-delay: 0.2s; }
+        .puzzle-piece:nth-child(3) { animation-delay: 0.3s; }
+        .puzzle-piece:nth-child(4) { animation-delay: 0.4s; }
+        .puzzle-piece:nth-child(5) { animation-delay: 0.5s; }
+        .puzzle-piece:nth-child(6) { animation-delay: 0.6s; }
+        .puzzle-piece:nth-child(7) { animation-delay: 0.7s; }
+        .puzzle-piece:nth-child(8) { animation-delay: 0.8s; }
+
+        /* Dark mode adjustments */
+        body.dark-mode .puzzle-front {
+            background: linear-gradient(135deg, rgba(163, 177, 208, 0.1), rgba(163, 177, 208, 0.2));
+            border: 2px solid rgba(163, 177, 208, 0.2);
+        }
+
+        body.dark-mode .puzzle-back {
+            background: linear-gradient(135deg, rgba(36, 59, 107, 0.9), rgba(36, 59, 107, 0.7));
+        }
+
+        body.dark-mode .puzzle-front i {
+            color: #a3b1d0;
+        }
+
+        /* Section animations */
+        .section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            /* Set the default transition to be slightly slower at 1.3s instead of 1s for all sections */
+            transition: all 1.3s ease;
+        }
+
+        .section-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Work section specific animation */
+        #portfolio.section-animate .slider-container {
+            animation: fadeInUp 1.2s ease; /* Slower from 1s to 1.2s */
+        }
+
+        /* Skills section specific animation */
+        #skills.section-animate .puzzle-container {
+            animation: fadeInScale 1.2s ease forwards; /* Add this to animate the entire container */
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        /* Contact section specific animation */
+        #contact.section-animate .info-wrap,
+        #contact.section-animate .contact-form {
+            animation: fadeInScale 1.2s ease forwards; /* Slower from 0.8s to 1.2s */
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        #contact.section-animate .info-wrap {
+            animation-delay: 0.3s;
+        }
+
+        #contact.section-animate .contact-form {
+            animation-delay: 0.5s;
+        }
+
+        /* Additional animations - slow these down too */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* About section animation */
+        #about.section-hidden {
+            opacity: 0;
+            transform: translateY(50px);
+            /* Slightly slower transition for about section - 1.3s instead of 1s */
+            transition: all 1.3s ease;
+        }
+
+        #about.section-animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* About section specific animations */
+        #about.section-animate .about-img-holder {
+            animation: fadeInScale 1.2s ease forwards;
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        #about.section-animate .about-caption {
+            animation: fadeInUp 1.2s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        #about.section-animate .about-img-holder {
+            animation-delay: 0.2s;
+        }
+
+        #about.section-animate .about-caption {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav class="custom-navbar" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="logo" href="#">Portfolio</a>
+            <ul class="nav">
+                <li class="item">
+                    <a class="link" href="#home">Home</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#about">About</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#skills">Skills</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#portfolio">My Work</a>
+                </li>
+                <li class="item">
+                    <a class="link" href="#contact">Contact</a>
+                </li>
+            </ul>
+            <!-- Dark mode toggle -->
+            <div class="dark-mode-toggle">
+                <span class="mode-icon ti-sun"></span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="darkModeToggle">
+                    <span class="toggle-slider"></span>
+                </label>
+                <span class="mode-icon ti-moon"></span>
+            </div>
+            <a href="javascript:void(0)" id="nav-toggle" class="hamburger hamburger--elastic">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </a>
+        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- page header -->
+    <header id="home" class="header">
+        <div class="overlay"></div>
+        <div class="header-content container">
+            <h1 class="header-title">
+                <span class="up">HI!</span>
+                <span class="down">I am Urwa Sajid</span>
+            </h1>
+            <p class="header-subtitle">FRONTEND WEB DESIGNER</p>
+
+            <button class="btn btn-primary">Visit My Works</button>
+        </div>
+    </header><!-- end of page header -->
+
+    <!-- about section -->
+    <section class="section pt-0" id="about">
+        <!-- container -->
+        <div class="container text-center">
+            <!-- about wrapper -->
+            <div class="about">
+                <div class="about-img-holder">
+                    <img src="assets/imgs/meee.png" class="about-img"
+                        alt="Profile image">
+                </div>
+                <div class="about-caption">
+                    <p class="section-subtitle">Who Am I ?</p>
+                    <h2 class="section-title mb-3">About Me</h2>
+                    <p>
+                        I'm a Computer Science student with a strong interest in UI/UX design and front-end development. I enjoy creating clean, user-friendly interfaces and building seamless digital experiences. Alongside my front-end skills, I also have experience working with backend technologies and databases, which allows me to develop full-stack applications with smooth functionality and efficient data management. I'm always looking to learn new technologies and improve my skills to bring both aesthetic and performance together in every project I work on.
+                    </p>
+                    <a href="assets/files/URWACV.pdf" download class="btn-rounded btn btn-outline-primary mt-4">Download CV</a>
+                </div>
+            </div><!-- end of about wrapper -->
+        </div><!-- end of container -->
+    </section> <!-- end of about section -->
+
+    <!-- My Work section -->
+    <section class="section" id="portfolio">
+        <div class="container text-center">
+            <p class="section-subtitle">Check Out My Projects</p>
+            <h6 class="section-title mb-5">My Work</h6>
+            
+            <div class="slider-container mb-5">
+                <h5 class="mb-3">Slide to reveal projects</h5>
+                <input type="range" class="custom-range" id="cardRevealSlider" min="0" max="100" value="0">
+                
+                <div class="row mt-4" id="revealCards">
+                    <!-- Cards will appear here as user slides -->
+                </div>
+            </div>
+        </div>
+    </section><!-- end of My Work section -->
+
+    <!-- Skills section with puzzle piece design -->
+    <section class="section" id="skills">
+        <div class="container text-center">
+            <p class="section-subtitle">What I'm good at</p>
+            <h6 class="section-title mb-5">My Skills</h6>
+            
+            <div class="puzzle-container">
+                <div class="puzzle-piece" data-skill="JavaScript">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-html5"></i>
+                            <h5>JavaScript</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>JavaScript</h6>
+                            <p>3+ years experience building interactive web applications</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="React">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-package"></i>
+                            <h5>React</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>React</h6>
+                            <p>Created modern UIs with React hooks, context API, and Redux</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="Node.js">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-server"></i>
+                            <h5>Node.js</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>Node.js</h6>
+                            <p>Building REST APIs and server-side applications</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="C++">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-settings"></i>
+                            <h5>C++</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>C++</h6>
+                            <p>Developing efficient applications with object-oriented programming</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="Python">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-harddrives"></i>
+                            <h5>Python</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>Python</h6>
+                            <p>Building data analysis tools and backend applications</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="Assembly">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-microchip"></i>
+                            <h5>Assembly</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>Assembly</h6>
+                            <p>Low-level programming for hardware control and system optimization</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="Figma">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-pencil-alt"></i>
+                            <h5>Figma</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>Figma</h6>
+                            <p>UI/UX design, prototyping, and collaboration</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-skill="Firebase">
+                    <div class="puzzle-content">
+                        <div class="puzzle-front">
+                            <i class="ti-cloud"></i>
+                            <h5>Firebase</h5>
+                        </div>
+                        <div class="puzzle-back">
+                            <h6>Firebase</h6>
+                            <p>Real-time databases, authentication, and cloud functions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- end of skills section -->
+
+    <!-- contact section -->
+    <section class="section" id="contact">
+        <div class="container text-center">
+            <p class="section-subtitle">How can you communicate?</p>
+            <h6 class="section-title mb-5">Contact Me</h6>
+
+            <div class="row gy-4">
+                <div class="col-lg-5">
+                    <div class="info-wrap">
+                        <div class="info-item d-flex mb-4">
+                            <i class="ti-location-pin flex-shrink-0 mr-3" style="font-size: 1.5rem;"></i>
+                            <div class="text-left">
+                                <h5>Address</h5>
+                                <p>18 km Faisal Spinning Mills (weaving unit), Faisalabad road, Ferozwattoan, District Sheikhupura</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item d-flex mb-4">
+                            <i class="ti-mobile flex-shrink-0 mr-3" style="font-size: 1.5rem;"></i>
+                            <div class="text-left">
+                                <h5>Call Me</h5>
+                                <p>+92 3116638219</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item d-flex mb-4">
+                            <i class="ti-email flex-shrink-0 mr-3" style="font-size: 1.5rem;"></i>
+                            <div class="text-left">
+                                <h5>Email Me</h5>
+                                <p>urwawsajidvirk@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" 
+                            frameborder="0" style="border:0; width: 100%; height: 270px; border-radius: 10px; margin-top: 20px;" 
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <form action="#" method="post" class="contact-form">
+                        <div class="row gy-4">
+                            <div class="form-group col-md-6">
+                                <label for="name-field" class="mb-2 text-left d-block">Your Name</label>
+                                <input type="text" name="name" id="name-field" class="form-control" required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="email-field" class="mb-2 text-left d-block">Your Email</label>
+                                <input type="email" class="form-control" name="email" id="email-field" required>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="subject-field" class="mb-2 text-left d-block">Subject</label>
+                                <input type="text" class="form-control" name="subject" id="subject-field" required>
+                            </div>
+
+                            <div class="form-group col-md-12">
+                                <label for="message-field" class="mb-2 text-left d-block">Message</label>
+                                <textarea class="form-control" name="message" rows="6" id="message-field" required></textarea>
+                            </div>
+
+                            <div class="form-group col-md-12 text-center mt-4">
+                                <div id="form-message" class="mb-3" style="display: none;"></div>
+                                <button type="submit" class="btn btn-primary rounded-pill px-4 py-2">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section><!-- end of contact section -->
+
+    <!-- footer -->
+    <div class="container">
+        <footer class="footer">
+            <p class="mb-0">Copyright
+                <script>document.write(new Date().getFullYear())</script> &copy; <a
+                    href="http://www.devcrud.com">UrwaSajid </a>. All rights reserved</a>
+            </p>
+            <div class="social-links text-right m-auto ml-sm-auto">
+                <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+            </div>
+        </footer>
+    </div> <!-- end of page footer -->
+
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Meyawo js -->
+    <script src="assets/js/meyawo.js"></script>
+
+    <script>
+        // Add scroll detection for the about image animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const aboutSection = document.getElementById('about');
+            const aboutImg = document.querySelector('.about-img');
+            let animated = false;
+            
+            window.addEventListener('scroll', function() {
+                // Check if about section is in viewport and animation hasn't played yet
+                const rect = aboutSection.getBoundingClientRect();
+                const isInViewport = rect.top <= window.innerHeight && rect.bottom >= 0;
+                
+                if (isInViewport && !animated) {
+                    aboutImg.classList.add('animate-img');
+                    animated = true; // Make sure it only animates once
+                    
+                    // Remove the animation class after it completes to allow it to trigger again
+                    // if user scrolls up and down multiple times
+                    setTimeout(function() {
+                        aboutImg.classList.remove('animate-img');
+                        animated = false;
+                    }, 1000);
+                }
+            });
+            
+            // Dark mode toggle functionality
+            const darkModeToggle = document.getElementById('darkModeToggle');
+            
+            // Check for saved dark mode preference or respect OS preference
+            if (localStorage.getItem('darkMode') === 'enabled' || 
+                (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && 
+                localStorage.getItem('darkMode') !== 'disabled')) {
+                document.body.classList.add('dark-mode');
+                darkModeToggle.checked = true;
+            }
+            
+            // Listen for toggle clicks
+            darkModeToggle.addEventListener('change', function() {
+                if (this.checked) {
+                    document.body.classList.add('dark-mode');
+                    localStorage.setItem('darkMode', 'enabled');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                    localStorage.setItem('darkMode', 'disabled');
+                }
+            });
+            
+            // My Work section sliders functionality - Only keep the horizontal slider
+            const cardRevealSlider = document.getElementById('cardRevealSlider');
+            const revealCards = document.getElementById('revealCards');
+            
+            // Create cards for the horizontal slider
+            const cardContents = [
+                { title: 'Web Design', icon: 'ti-palette', description: 'Creating beautiful, responsive websites' },
+                { title: 'Frontend Dev', icon: 'ti-desktop', description: 'Building interactive user interfaces' },
+                { title: 'UI/UX Design', icon: 'ti-layers', description: 'Crafting intuitive user experiences' },
+                { title: 'Mobile Design', icon: 'ti-mobile', description: 'Responsive designs for all devices' },
+                { title: 'SEO', icon: 'ti-stats-up', description: 'Optimizing for search engines' },
+                { title: 'Web Accessibility', icon: 'ti-world', description: 'Ensuring websites are usable by everyone' }
+            ];
+            
+            // Add cards but make them hidden initially
+            cardContents.forEach((content, index) => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'col-md-4 mb-4 card-reveal';
+                cardElement.innerHTML = `
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <i class="${content.icon} mb-3" style="font-size: 2rem;"></i>
+                            <h5 class="card-title">${content.title}</h5>
+                            <p class="card-text">${content.description}</p>
+                        </div>
+                    </div>
+                `;
+                revealCards.appendChild(cardElement);
+            });
+            
+            // Handle horizontal slider
+            cardRevealSlider.addEventListener('input', function() {
+                const value = this.value;
+                const cards = document.querySelectorAll('.card-reveal');
+                // Calculate how many cards to show based on slider value
+                const cardsToShow = Math.ceil((value / 100) * cards.length);
+                
+                cards.forEach((card, index) => {
+                    if (index < cardsToShow) {
+                        card.classList.add('visible');
+                    } else {
+                        card.classList.remove('visible');
+                    }
+                });
+            });
+
+            // Connect "Visit My Works" button to the portfolio section
+            const workButton = document.querySelector('.header-content .btn-primary');
+            workButton.addEventListener('click', function() {
+                document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            // Add this inside your existing DOMContentLoaded handler
+            const skillsSection = document.getElementById('skills');
+            const puzzlePieces = document.querySelectorAll('.puzzle-piece');
+
+            // Intersection Observer for animation
+            const puzzleObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add a delay to match the section animation timing
+                        setTimeout(() => {
+                            // Reset animations when section comes into view
+                            puzzlePieces.forEach((piece, index) => {
+                                piece.style.animationName = 'none';
+                                setTimeout(() => {
+                                    piece.style.animationName = 'puzzleAppear';
+                                }, 10);
+                            });
+                        }, 500); // 500ms delay to let the section animation start
+                        puzzleObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            if (skillsSection) {
+                puzzleObserver.observe(skillsSection);
+            }
+
+            // Animation for sections on scroll
+            const animateSections = () => {
+                // Sections to animate - add about section to the array
+                const sections = [
+                    document.getElementById('about'),
+                    document.getElementById('portfolio'),
+                    document.getElementById('skills'),
+                    document.getElementById('contact')
+                ];
+                
+                // Observer options
+                const options = {
+                    threshold: 0.2,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+                
+                // Create observer
+                const sectionObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('section-animate');
+                            sectionObserver.unobserve(entry.target); // Only animate once
+                        }
+                    });
+                }, options);
+                
+                // Add initial hidden class and observe each section
+                sections.forEach(section => {
+                    if (section) {
+                        section.classList.add('section-hidden');
+                        sectionObserver.observe(section);
+                    }
+                });
+            };
+
+            // Initialize the section animations
+            animateSections();
+        });
+    </script>
+</body>
+</html>
